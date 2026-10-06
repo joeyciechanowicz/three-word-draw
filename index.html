@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three-Word Draw</title>
+<meta name="description" content="Draw a random thing, place and action, then sketch the scene!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>✏️ Three-Word Draw</h1>
+  <p class="tagline">Pick a <b>thing</b>, an <b>action</b> and a <b>place</b>, then draw the scene!</p>
+
+  <section class="cards" aria-live="polite">
+    <article class="card thing" data-pile="things">
+      <h2>Thing</h2>
+      <div class="emoji" aria-hidden="true">❓</div>
+      <div class="word">?</div>
+      <button class="reroll" type="button" aria-label="Re-draw the thing">🎲 Re-draw</button>
+      <small class="left"></small>
+    </article>
+    <article class="card action" data-pile="actions">
+      <h2>Action</h2>
+      <div class="emoji" aria-hidden="true">❓</div>
+      <div class="word">?</div>
+      <button class="reroll" type="button" aria-label="Re-draw the action">🎲 Re-draw</button>
+      <small class="left"></small>
+    </article>
+    <article class="card place" data-pile="places">
+      <h2>Place</h2>
+      <div class="emoji" aria-hidden="true">❓</div>
+      <div class="word">?</div>
+      <button class="reroll" type="button" aria-label="Re-draw the place">🎲 Re-draw</button>
+      <small class="left"></small>
+    </article>
+  </section>
+
+  <button id="draw" class="draw" type="button">🎉 Draw!</button>
+
+  <section class="timer">
+    <label>Drawing timer
+      <select id="duration">
+        <option value="0">Off</option>
+        <option value="60">1 minute</option>
+        <option value="120">2 minutes</option>
+        <option value="180" selected>3 minutes</option>
+        <option value="300">5 minutes</option>
+      </select>
+    </label>
+    <div id="clock" class="clock" hidden>00:00</div>
+  </section>
+
+  <footer>Add your own words in <code>words.js</code>.</footer>
+</main>
+<script src="words.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
