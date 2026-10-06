@@ -1,7 +1,7 @@
 # Three-Word Draw ✏️
 
-A family drawing game. Draw a random **thing**, **place** and **action**, then sketch the scene
-(e.g. *frog, writing desk, flying*).
+A family drawing game. Draw a random **who**, **action** and **place**, then sketch the scene
+(e.g. *frog, flying, writing desk*).
 
 Static site with no build step. Open `index.html`, or serve the folder with `python3 -m http.server`.
 

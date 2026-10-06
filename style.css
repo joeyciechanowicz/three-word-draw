@@ -3,7 +3,7 @@
   --ink: #2b2540;
   --muted: #6d6585;
   --card: #ffffff;
-  --thing: #ff8fab;
+  --who: #ff8fab;
   --place: #6ec6ff;
   --action: #ffd166;
   --accent: #7b5cff;
@@ -15,7 +15,7 @@
     --ink: #f6f1ff;
     --muted: #b3a9d1;
     --card: #2b2445;
-    --thing: #c2456c;
+    --who: #c2456c;
     --place: #2b78b0;
     --action: #b88a10;
     --accent: #9a82ff;
@@ -56,7 +56,7 @@ h1 { margin: 0; font-size: clamp(2rem, 6vw, 3.2rem); }
   gap: 6px;
   height: 300px; /* fixed so shuffling words never resize the cards */
 }
-.card.thing { --c: var(--thing); }
+.card.who { --c: var(--who); }
 .card.place { --c: var(--place); }
 .card.action { --c: var(--action); }
 .card h2 {

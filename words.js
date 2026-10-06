@@ -1,37 +1,32 @@
 // Each entry is "<emoji> <words>". Add your own family favourites to any list!
 
-const THINGS = [
-  "🐸 frog", "🍌 banana", "🏴‍☠️ pirate", "🦖 dinosaur", "🧙 wizard", "👵 grandma", "👴 grandad", "🌭 sausage dog",
-  "🍮 wobbly jelly", "🤖 robot", "🐙 octopus", "🦄 unicorn", "🐉 dragon", "👻 ghost", "🧛 vampire", "🧟 zombie",
-  "🧜 mermaid", "🧚 fairy", "🦸 superhero", "🥷 ninja", "🤡 clown", "🐔 chicken", "🐷 pig", "🐮 cow",
-  "🐑 sheep", "🐴 horse", "🐶 puppy", "🐱 kitten", "🐭 mouse", "🐰 bunny", "🦊 fox", "🐻 bear",
-  "🐼 panda", "🐨 koala", "🦁 lion", "🐯 tiger", "🐘 elephant", "🦒 giraffe", "🦓 zebra", "🦛 hippo",
-  "🦘 kangaroo", "🐒 monkey", "🦍 gorilla", "🐧 penguin", "🦉 owl", "🦆 duck", "🦢 swan", "🦜 parrot",
-  "🦩 flamingo", "🐢 tortoise", "🐍 snake", "🐊 crocodile", "🦎 lizard", "🐌 snail", "🐛 caterpillar", "🦋 butterfly",
-  "🐝 bee", "🐞 ladybird", "🕷️ spider", "🦀 crab", "🦞 lobster", "🐠 goldfish", "🦈 shark", "🐳 whale",
+const WHO = [
+  // people
+  "👵 grandma", "👴 grandad", "👨‍🦳 old man", "👩‍🦳 old lady", "👶 baby", "🧒 little kid", "👦 cheeky boy", "👧 girl with pigtails",
+  "👨 dad", "👩 mum", "🧑‍🍼 big sister", "🧔 bearded man", "👱 teenager", "🤵 groom", "👰 bride", "🧑‍🎓 student",
+  "🧑‍🏫 teacher", "🧑‍⚕️ doctor", "🦷 dentist", "🧑‍🍳 chef", "🧑‍🌾 farmer", "🧑‍🚒 firefighter", "👮 police officer", "🧑‍✈️ pilot",
+  "🧑‍🚀 astronaut", "🕵️ detective", "🧑‍🎤 rock star", "💃 dancer", "🤹 juggler", "🤡 clown", "🎩 magician", "🏋️ strongman",
+  "🥷 ninja", "🤺 knight", "🏴‍☠️ pirate", "🤠 cowboy", "👑 king", "👸 queen", "🤴 prince", "👸 princess",
+  "🦸 superhero", "🦹 villain", "🧙 wizard", "🧙‍♀️ witch", "🧚 fairy", "🧜 mermaid", "🧝 elf", "🧞 genie",
+  "🎅 Santa", "🧛 vampire", "🧟 zombie", "👻 ghost", "💀 skeleton", "👽 alien", "🤖 robot", "👾 space monster",
+  "🧌 troll", "👹 friendly ogre", "🧸 teddy bear", "🪆 wooden doll", "🥋 karate kid", "🧑‍🔧 plumber", "🚴 cyclist", "🏊 swimmer",
+  "⛷️ skier", "🏄 surfer", "🧑‍🎨 painter", "📸 photographer", "🎻 violinist", "🚌 bus driver", "🧑‍🚀 spaceman", "🕺 disco dancer",
+  // animals
+  "🐑 sheep", "🐮 cow", "🐷 pig", "🐴 horse", "🐓 chicken", "🐥 baby chick", "🦆 duck", "🦢 swan",
+  "🦃 turkey", "🐐 goat", "🐶 puppy", "🐕 sausage dog", "🐩 poodle", "🐱 kitten", "🐈 fat cat", "🐭 mouse",
+  "🐹 hamster", "🐰 bunny", "🦊 fox", "🐻 bear", "🐻‍❄️ polar bear", "🐼 panda", "🐨 koala", "🦁 lion",
+  "🐯 tiger", "🐆 leopard", "🐘 elephant", "🦒 giraffe", "🦓 zebra", "🦛 hippo", "🦏 rhino", "🦘 kangaroo",
+  "🐒 monkey", "🦍 gorilla", "🐧 penguin", "🦉 owl", "🦜 parrot", "🦩 flamingo", "🦚 peacock", "🕊️ pigeon",
+  "🦅 eagle", "🐦 little bird", "🐸 frog", "🐢 tortoise", "🐍 snake", "🐊 crocodile", "🦎 lizard", "🐌 snail",
+  "🐛 caterpillar", "🦋 butterfly", "🐝 bee", "🐞 ladybird", "🕷️ spider", "🐜 ant", "🦗 cricket", "🪰 fly",
+  "🦀 crab", "🦞 lobster", "🐙 octopus", "🦑 squid", "🐠 goldfish", "🐡 pufferfish", "🦈 shark", "🐳 whale",
   "🐬 dolphin", "🦭 seal", "🦥 sloth", "🦔 hedgehog", "🦦 otter", "🦡 badger", "🐿️ squirrel", "🦇 bat",
-  "🐪 camel", "🦙 llama", "🐐 goat", "🦃 turkey", "🕊️ pigeon", "🪱 worm", "🪰 fly", "🦟 mosquito",
-  "🍕 pizza", "🍔 burger", "🌭 hot dog", "🍟 chip", "🥦 broccoli", "🥕 carrot", "🌽 sweetcorn", "🥔 potato",
-  "🍅 tomato", "🍆 aubergine", "🍄 mushroom", "🧅 onion", "🥒 cucumber", "🍎 apple", "🍐 pear", "🍓 strawberry",
-  "🍉 watermelon", "🍍 pineapple", "🥥 coconut", "🥝 kiwi", "🍋 lemon", "🍒 cherries", "🍪 cookie", "🍩 doughnut",
-  "🎂 birthday cake", "🧁 cupcake", "🍦 ice cream", "🍫 chocolate bar", "🍬 lollipop", "🥞 pancake stack", "🧀 cheese", "🥚 egg",
-  "🍞 loaf of bread", "🥐 croissant", "🥨 pretzel", "🍝 spaghetti", "🌮 taco", "🍿 popcorn", "🥜 peanut", "🫘 baked beans",
-  "👑 king", "👸 queen", "🤴 prince", "🧑‍🚀 astronaut", "🧑‍🚒 firefighter", "👮 police officer", "🧑‍🍳 chef", "🧑‍🌾 farmer",
-  "🧑‍🏫 teacher", "🧑‍⚕️ doctor", "🧑‍🎤 rock star", "🕵️ detective", "🧑‍✈️ pilot", "💃 dancer", "🏋️ weightlifter", "🤺 fencer",
-  "🎅 Santa", "🧝 elf", "🧞 genie", "👽 alien", "👾 space invader", "🐲 baby dragon", "🧌 troll", "🦹 villain",
-  "🧸 teddy bear", "🪀 yo-yo", "🪁 kite", "🎈 balloon", "🎁 present", "⚽ football", "🏀 basketball", "🎾 tennis ball",
-  "🛹 skateboard", "🚲 bicycle", "🛴 scooter", "🚗 car", "🚌 bus", "🚂 steam train", "🚜 tractor", "🚁 helicopter",
-  "✈️ aeroplane", "🚀 rocket", "🛸 flying saucer", "⛵ sailing boat", "🚢 cruise ship", "🛶 canoe", "🎡 Ferris wheel", "🎢 rollercoaster",
-  "☂️ umbrella", "🪑 wobbly chair", "🛏️ bed", "🚽 toilet", "🛁 bathtub", "🧻 toilet roll", "🪥 toothbrush", "🧼 bar of soap",
-  "🧦 smelly sock", "🩲 underpants", "👟 trainer", "🥾 wellie boot", "🎩 top hat", "👒 sun hat", "🧢 baseball cap", "👓 glasses",
-  "👗 ball gown", "🧥 raincoat", "🧣 scarf", "🧤 mitten", "🍑 bum", "🦶 stinky foot", "👃 big nose", "👅 tongue",
-  "🦷 wobbly tooth", "🧠 brain", "👁️ giant eyeball", "💨 fart cloud", "💩 emoji poo", "🤧 snotty tissue", "💅 painted toenails", "🧔 bushy beard",
-  "🎸 guitar", "🥁 drum kit", "🎺 trumpet", "🎻 violin", "🎹 piano", "🎤 microphone", "📺 television", "📱 mobile phone",
-  "💡 light bulb", "🔦 torch", "🕰️ cuckoo clock", "⏰ alarm clock", "🔑 giant key", "🗝️ treasure chest key", "💎 diamond", "🪙 gold coin",
-  "🗺️ treasure map", "🔭 telescope", "🔬 microscope", "🧪 bubbling potion", "🧲 magnet", "🪄 magic wand", "🔮 crystal ball", "📚 pile of books",
-  "✏️ pencil", "🖍️ crayon", "🧹 broom", "🪣 bucket", "🪜 ladder", "🔨 hammer", "🪚 saw", "🧰 toolbox",
-  "🏰 sandcastle", "⛄ snowman", "🌵 cactus", "🌻 sunflower", "🌳 tree", "🌈 rainbow", "☁️ fluffy cloud", "⛈️ storm cloud",
-  "🌙 moon", "☀️ sun", "⭐ shooting star", "☄️ comet", "🌋 mini volcano", "🐚 seashell", "🪸 coral", "🫧 bubble"
+  "🐪 camel", "🦙 llama", "🐺 wolf", "🦝 raccoon", "🦌 deer", "🦬 bison", "🐗 warthog", "🐀 rat",
+  "🪱 worm", "🦫 beaver", "🦤 dodo", "🦨 skunk", "🐃 buffalo", "🦄 unicorn", "🐉 dragon", "🐲 baby dragon",
+  "🦖 T-rex", "🦕 long-necked dinosaur", "🐴 pony", "🐎 racehorse", "🐕‍🦺 guide dog", "🐇 white rabbit", "🦢 ugly duckling", "🐈‍⬛ black cat",
+  // silly
+  "🍌 dancing banana", "🍕 pizza with legs", "🥕 carrot man", "🍄 mushroom person", "⛄ snowman", "🍪 gingerbread man", "🌽 corn on legs", "🍑 wiggly bum",
+  "💨 smelly fart cloud", "🧦 sock puppet", "🥚 egg with a face", "🍦 melting ice cream", "🌻 sunflower with a smile", "☁️ grumpy cloud", "🌞 happy sun", "⭐ sleepy star"
 ];
 
 const PLACES = [

@@ -1,5 +1,5 @@
 (() => {
-  const piles = { things: THINGS, places: PLACES, actions: ACTIONS };
+  const piles = { who: WHO, places: PLACES, actions: ACTIONS };
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const rand = (n) => {
